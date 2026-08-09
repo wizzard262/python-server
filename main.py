@@ -17,15 +17,18 @@ def home():
     # Returning raw HTML is fine — Flask will send it as text/html automatically.
     return """
     <html>
-        <head><title>Cloud Run service running a Flask Python web server</title></head>
+        <head>
+            <title>Cloud Run service running a Flask Python web server</title>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+        </head>
         <body>
+        <h1>Cloud Run service running a Flask Python web server</h1>
             <ul>
-                <li>Cloud Run service running a Flask Python web server
-                <li>Github Repo: <a href="https://github.com/wizzard262/python-server"></a>
-                <li>Github Repo README (setup): <a href="https://github.com/wizzard262/python-server/blob/main/README.md"></a>
+                <li>Github Repo: <a href="https://github.com/wizzard262/python-server">https://github.com/wizzard262/python-server</a>
+                <li>Github Repo README (setup): <a href="https://github.com/wizzard262/python-server/blob/main/README.md">https://github.com/wizzard262/python-server/blob/main/README.md</a>
                 <li>Homepage URL: <a href="https://python-server-git-576465670226.europe-west1.run.app/">https://python-server-git-576465670226.europe-west1.run.app/</a>
-                <li>Status (JSON) URL: <a href="https://python-server-git-576465670226.europe-west1.run.app/status">https://python-server-git-576465670226.europe-west1.run.app/status</a>
-                <li>Service3 URL: <a href="https://console.cloud.google.com/run/detail/europe-west1/python-server-git/observability/metrics?project=my-project-1491071384075">https://console.cloud.google.com/run/detail/europe-west1/python-server-git/observability/metrics?project=my-project-1491071384075</a>
+                <li>Status URL (JSON): <a href="https://python-server-git-576465670226.europe-west1.run.app/status">https://python-server-git-576465670226.europe-west1.run.app/status</a>
+                <li>Console Service URL: <a href="https://console.cloud.google.com/run/detail/europe-west1/python-server-git/observability/metrics?project=my-project-1491071384075">https://console.cloud.google.com/run/detail/europe-west1/python-server-git/observability/metrics?project=my-project-1491071384075</a>
             </ul>
         </body>
     </html>
