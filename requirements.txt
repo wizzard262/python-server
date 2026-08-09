@@ -1,0 +1,7 @@
+# requirements.txt
+# This file lists Python packages your Cloud Run Function needs.
+# Cloud Run Functions requires "functions-framework" so it knows
+# how to run your function as an HTTP endpoint.
+# Add any other dependencies below (e.g., requests, google-cloud-storage).
+
+functions-framework
