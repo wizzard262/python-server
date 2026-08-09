@@ -24,8 +24,8 @@ def home():
         <body>
         <h1>Cloud Run service running a Flask Python web server</h1>
         <p>
-            This homepage page is served from the Python web server.<br/>
-            One other path is served: "/status"
+            &nbsp;&nbsp;This homepage page is served from the Python web server.<br/>
+            &nbsp;&nbsp;One other path is served: "/status"
         </p>
             <ul>
                 <li>Github Repo: <a href="https://github.com/wizzard262/python-server">https://github.com/wizzard262/python-server</a>
