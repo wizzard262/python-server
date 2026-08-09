@@ -1,45 +1,46 @@
-# main.py
-# This file contains the Cloud Run Function entrypoint.
-# Cloud Run Functions will automatically call the "main" function
-# whenever an HTTP request is received.
-# The "request" object works like Flask's request:
-#   - request.args for query parameters
-#   - request.json for JSON body
-#   - request.headers for headers
-# You must return either:
-#   - a string
-#   - a dict (auto-converted to JSON)
-#   - a tuple (body, status_code)
-# No server code, no Flask app, no container code required.
+# Import Flask and jsonify helper
+# Flask is a lightweight web framework that Cloud Run can run easily.
+from flask import Flask, jsonify
 
-# Cloud Run Functions only gives you ONE entrypoint function ("main"),
-# but you can create multiple endpoints by checking request.path.
-# This behaves like a tiny router.
+# Create the Flask application object.
+# This represents your web service.
+app = Flask(__name__)
 
-def main(request):
-    path = request.path  # e.g. "/", "/status"
+# -------------------------------
+# HTML ENDPOINT
+# -------------------------------
+# This route handles GET requests to "/".
+# Cloud Run will send traffic here when someone visits your root URL.
+@app.route("/")
+def home():
+    # Returning raw HTML is fine — Flask will send it as text/html automatically.
+    return """
+    <html>
+        <head><title>Cloud Run Flask</title></head>
+        <body>
+            <h1>Hello Steve!</h1>
+            <p>This is your HTML endpoint running in Flask on Cloud Run.</p>
+        </body>
+    </html>
+    """
 
-    # Default endpoint: return HTML
-    if path == "/" or path == "":
-        html = """
-        <html>
-            <head><title>Cloud Run Functions</title></head>
-            <body>
-                <h1>Hello Steve!</h1>
-                <p>This is your HTML endpoint running on Cloud Run Functions.</p>
-            </body>
-        </html>
-        """
-        # Return HTML with correct content type
-        return html, 200, {"Content-Type": "text/html"}
+# -------------------------------
+# JSON ENDPOINT
+# -------------------------------
+# This route handles GET requests to "/status".
+# jsonify() ensures proper JSON formatting and headers.
+@app.route("/status")
+def status():
+    return jsonify({"status": "ok"})
 
-    # Endpoint 2: /status  (JSON response)
-    if path == "/status":
-        return {
-            "status": "ok",
-            "service": "cloud-run-functions"
-            "version": "1.0"
-        }
-
-    # Default fallback for unknown paths
-    return {"error": "Unknown endpoint", "path": path}, 404
+# -------------------------------
+# FLASK SERVER STARTUP
+# -------------------------------
+# Cloud Run sets the PORT environment variable automatically.
+# Buildpacks expect your app to listen on this port.
+# DO NOT hardcode port numbers — always read from $PORT.
+if __name__ == "__main__":
+    import os
+    port = int(os.environ.get("PORT", 8080))  # fallback for local testing
+    # host="0.0.0.0" makes the server reachable from Cloud Run's network.
+    app.run(host="0.0.0.0", port=port)
