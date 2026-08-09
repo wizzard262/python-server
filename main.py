@@ -18,11 +18,15 @@ def home():
     return """
     <html>
         <head>
-            <title>Cloud Run service running a Flask Python web server</title>
+            <title>Google Cloud Run service running a Flask Python web server</title>
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
         </head>
         <body>
         <h1>Cloud Run service running a Flask Python web server</h1>
+        <p>
+            This homepage page is served from the Python web server.<br/>
+            One other path is served: "/status"
+        </p>
             <ul>
                 <li>Github Repo: <a href="https://github.com/wizzard262/python-server">https://github.com/wizzard262/python-server</a>
                 <li>Github Repo README (setup): <a href="https://github.com/wizzard262/python-server/blob/main/README.md">https://github.com/wizzard262/python-server/blob/main/README.md</a>

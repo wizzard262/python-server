@@ -61,3 +61,25 @@ Every push to the GitHub branch triggers Cloud Build:
 
 No Dockerfile required.  
 No manual container configuration needed.
+
+## 4. Run it locally (Windows)
+1. 1. Download Python from https://www.python.org/downloads/
+      Run the installer.  
+      IMPORTANT: Tick “Add Python to PATH”.  
+      Open Command Prompt (Powershell as Admin) and check it works:  ```python --version```  
+
+2. Install Flask:
+	Open a terminal (Powershell as Admin): ```cd C:\DEV\Repositories\GitHub\python-server```  
+    Run ```pip install -r requirements.txt```  
+	_(reads what is needed from the requirements file)_
+
+3. Run the server locally:
+   ```python main.py```
+
+4. Open in browser, it tell us it is running at both:  
+ - Running on http://127.0.0.1:8080  
+ - Running on http://192.168.1.177:8080  
+ 
+and also for status:  
+- Running on http://127.0.0.1:8080/status  
+- Running on http://192.168.1.177:8080/status  
