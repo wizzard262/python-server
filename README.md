@@ -34,8 +34,9 @@ A Python web server deployed to Google Cloud Run using Buildpacks.
 
 * Allow public access
 
-* Deployment URL example:
-  https://python-server-576465670226.europe-west1.run.app
+* Deployment URLs:
+  - https://python-server-git-576465670226.europe-west1.run.app/ (homepage)
+  - https://python-server-git-576465670226.europe-west1.run.app/status
 
 ## 2. Python web server code (Flask)
 
