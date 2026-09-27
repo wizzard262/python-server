@@ -42,13 +42,9 @@ WEATHER_CODES = {
     99: "Thunderstorm with heavy hail"
 }
 
-
 # Create the Flask application object.
 # This represents your web service.
 app = Flask(__name__)
-
-# Open-Meteo API endpoint for current weather in Berlin (latitude=52.52, longitude=13.41)
-url = "https://api.open-meteo.com/v1/forecast?current_weather=true&latitude=52.52&longitude=13.41&"
 
 # -------------------------------
 # HTML ENDPOINT
@@ -78,9 +74,12 @@ def home():
             </ul>
             PATHS:
             <ul>
-                <li>"/" - HTML page</li>
-                <li>"/status" - JSON status endpoint</li>
-                <li>"/weather?lat=53.24&lon=2.09" - JSON weather endpoint (replace lat/lon as needed, this is for Stockport, UK)</li> 
+                <li><a href="/">/</a> - (this HTML page)</li>
+                <li><a href="/status">/status</a> - JSON status endpoint</li>
+                <li>
+                    <a href="/weather?lat=53.24&lon=2.09">/weather?lat=53.24&lon=2.09</a>- JSON weather endpoint (replace lat/lon as needed, this is for Stockport, UK)<br/>
+                    (i.e. call Open Meteo API: https://api.open-meteo.com/v1/forecast?current_weather=true&latitude=53.24&longitude=2.09)
+                </li>
             </ul>
         </body>
     </html>
