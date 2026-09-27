@@ -63,15 +63,19 @@ No Dockerfile required.
 No manual container configuration needed.
 
 ## 4. Run it locally (Windows)
-1. 1. Download Python from https://www.python.org/downloads/
+1. Download Python from https://www.python.org/downloads/
       Run the installer.  
-      IMPORTANT: Tick “Add Python to PATH”.  
+      _(typically installs to C:\Users\jones\AppData\Local\Python\)_
+      IMPORTANT: Tick “Add Python to PATH”.  (so it runs from any filepath)
       Open Command Prompt (Powershell as Admin) and check it works:  ```python --version```  
 
-2. Install Flask:
-	Open a terminal (Powershell as Admin): ```cd C:\DEV\Repositories\GitHub\python-server```  
+Open a terminal (Powershell as Admin): 
+
+2. Install Flask:	 
+  Change to the local project folder: ```cd C:\DEV\Repositories\GitHub\python-server```  
     Run ```pip install -r requirements.txt```  
-	_(reads what is needed from the requirements file)_
+	_(reads what is needed from the requirements file and installs all the Python packages listed in the file )_  
+  PIP is Python’s official package installer and dependency manager.
 
 3. Run the server locally:
    ```python main.py```
