@@ -1,3 +1,9 @@
-# Flask is the only dependency needed for this Cloud Run service.
-# Buildpacks will automatically install it and run your app without a Dockerfile.
+# N.B. If a package is installed locally (e.g. requests) it will run locally,
+# but to run on Google Cloud Run you MUST list every dependency here.
+# Buildpacks install ONLY what is in this file.
+
+# Flask is needed for the web server.
 flask
+
+# Requests is needed for calling external APIs (e.g. Open‑Meteo).
+requests
